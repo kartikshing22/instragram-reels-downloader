@@ -56,6 +56,7 @@ def login_to_instagram():
                 page.fill("input[name='username']", username)
                 page.fill("input[name='password']", password)
                 page.click("button[type='submit']")
+                time.sleep(8)
                 page.wait_for_load_state("networkidle")
                 save_session(context)
         except :
@@ -63,7 +64,7 @@ def login_to_instagram():
 
         page.goto("https://www.instagram.com/explore/")
         page.wait_for_load_state("networkidle")
-        for i in range(3):
+        for i in range(3):      #increase the number to get more videos
             page.evaluate("window.scrollBy(0, 2000)")
             time.sleep(3)
 
